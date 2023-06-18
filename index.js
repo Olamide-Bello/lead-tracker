@@ -34,7 +34,9 @@ if (leadsFromLocalStorage) {
     renderLeads()
 }
 saveBtn.addEventListener("click", function() {
-    myLeads.push(`https://google.com/search?q=${inputEl.value}`)
+    if (inputEl.value) {
+        myLeads.push(`https://google.com/search?q=${inputEl.value}`)
+    }
     renderLeads()
     inputEl.value = ""
     localStorage.setItem("myLeads", JSON.stringify(myLeads))
